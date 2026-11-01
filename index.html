@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lista de contactos obtenida de la API de JSONPlaceholder">
+    <title>Lista de contactos</title>
+</head>
+<body>
+    <header class="encabezado">
+        <h1 class="encabezado__titulo">Lista de contactos</h1>
+        <p class="encabezado__descripcion">
+            Datos obtenidos de la API pública de
+            <a href="https://jsonplaceholder.typicode.com/users" target="_blank" rel="noopener noreferrer">JSONPlaceholder</a>
+        </p>
+    </header>
+
+    <main class="contenedor">
+        <section class="tarjeta" aria-labelledby="titulo-tabla">
+            <div class="tarjeta__cabecera">
+                <h2 id="titulo-tabla" class="tarjeta__titulo">Contactos</h2>
+                <span id="contador" class="contador">0 contactos</span>
+            </div>
+
+            <p id="estado" class="estado" role="status">Cargando contactos...</p>
+
+            <div class="tabla-contenedor">
+                <table class="tabla">
+                    <caption class="visualmente-oculto">Lista de contactos con nombre, email, teléfono y empresa</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">Empresa</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpo-tabla">
+                        <!-- Las filas se insertan con JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <p>Reto #3 JS - CampusLands</p>
+    </footer>
+</body>
+</html>
