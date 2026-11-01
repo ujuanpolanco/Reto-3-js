@@ -1,6 +1,8 @@
 const URL_API = "https://jsonplaceholder.typicode.com/users";
 
 const cuerpoTabla = document.getElementById("cuerpo-tabla");
+const estado = document.getElementById("estado");
+const contador = document.getElementById("contador");
 
 // Pide los usuarios a la API y devuelve el arreglo de contactos
 async function obtenerContactos() {
@@ -49,12 +51,24 @@ function crearFila(contacto) {
 function mostrarContactos(contactos) {
     const filas = contactos.map(crearFila);
     cuerpoTabla.replaceChildren(...filas);
+    contador.textContent = `${contactos.length} contactos`;
+}
+
+function mostrarError() {
+    estado.textContent = "No se pudieron cargar los contactos. Intenta de nuevo más tarde.";
+    estado.classList.add("estado--error");
 }
 
 async function iniciar() {
-    const contactos = await obtenerContactos();
-    console.log("Datos obtenidos correctamente:", contactos);
-    mostrarContactos(contactos);
+    try {
+        const contactos = await obtenerContactos();
+        console.log("Datos obtenidos correctamente:", contactos);
+        mostrarContactos(contactos);
+        estado.hidden = true;
+    } catch (error) {
+        console.error("Error al obtener los datos:", error);
+        mostrarError();
+    }
 }
 
 iniciar();
