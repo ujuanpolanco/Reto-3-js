@@ -207,3 +207,32 @@ a:focus-visible {
 .pie p {
     margin: 0;
 }
+
+/* ===== Responsivo ===== */
+@media (max-width: 600px) {
+    .encabezado {
+        padding: 2rem 1rem 4rem;
+    }
+
+    .encabezado__titulo {
+        font-size: 1.75rem;
+    }
+
+    .tarjeta__cabecera,
+    .estado {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .tabla th,
+    .tabla td {
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* ===== Accesibilidad ===== */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --duracion: 0s;
+    }
+}
